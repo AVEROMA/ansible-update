@@ -1,0 +1,10 @@
+#Debian server
+server-deb: 34.90.229.80
+server-deb-port: 22
+server-deb-user: 'ansible'
+
+#CentOS server
+
+server-centos: 34.91.152.42
+server-centos-port: 22
+server-centos-user: 'ansible'

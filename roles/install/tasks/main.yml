@@ -1,0 +1,23 @@
+- name: check if {{ service }} is installed
+  package_facts:
+    manager: "auto"
+
+- name: install the latest version of {{ service }} on CentOS
+  yum: name={{ service }} state=latest
+  when: 
+    - ansible_os_family == "RedHat"
+    - "'{{ service }}' not in ansible_facts.packages"
+
+- name: update to the latest version of {{ service }} on CentOS
+  yum:
+    name: {{ service }}
+    state: latest
+    update_only: yes
+
+#Debian обновляет пакет командой sudo apt install, надо убедиться, как это работает в ансибле
+- name: install or update to the latest version of {{ service }} on Debian
+  apt:
+    update_cache: yes
+    pkg: {{ service }}
+    state: latest
+  when: ansible_os_family == "Debian"

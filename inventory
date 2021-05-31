@@ -1,0 +1,5 @@
+[server-deb]
+server-deb ansible_host={{ server-deb }} ansible_port={{ server-deb-port }} ansible_ssh_user={{ server-deb-user }}
+
+[server-centos]
+server-centos ansible_host={{ server-centos }} ansible_port={{ server-centos-port }} ansible_ssh_user={{ server-centos-user }}
